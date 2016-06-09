@@ -14,7 +14,7 @@ namespace MusicGenerator
             //int noteNumber = 0;
             int instrumentNumber = 1;
             int sequenceLength = 7;
-            int channel = 0;
+            int channel;
             int volume = 50;
             var notesPerChannelList = new List<NotesPerChannel>();
             var nPlayer = new NotePlayer();
@@ -23,6 +23,7 @@ namespace MusicGenerator
 
             do
             {
+                channel = 0;
                 do
                 {
                     channel = channel + 1;                    
@@ -38,6 +39,7 @@ namespace MusicGenerator
                 Console.WriteLine("Playing random sequence. Press any key to stop.");
                 //nPlayer.PlayNotes(noteSequence, instrumentNumber, 1, 50, true);
                 nPlayer.PlayNotesOnMultipleChannels(notesPerChannelList);
+                notesPerChannelList.Clear();
                 Console.WriteLine("Continue? (y/n) :");
                          
             } while (Console.ReadLine().ToLower() == "y");
